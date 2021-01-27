@@ -1,0 +1,84 @@
+#include<stdio.h>
+#include<stdlib.h>
+int a[10],i,j,front=-1,rear=-1,n,c,ele;
+void enqueue();
+void dequeue();
+void display(int);
+void main()
+{
+    printf("Enter the no of elements\n");
+    scanf("%d",&n);
+    do{
+        printf("\nMENU\n");
+        printf("1.Enqueue\n 2.Dequeue\n3.Display\n4.Exit\n");
+        printf("\nEnter choice:\t");
+        scanf("%d",&c);
+        switch(c)
+        {
+            case 1:
+            enqueue();
+            break;
+            case 2:
+             dequeue();
+            break;
+            case 3:
+            display(n);
+            break;
+            case 4:
+            printf("\nExit complete!!!!\n");
+            break;
+            default:
+            printf("\nWrong choice\n");
+        }
+    }while(c<4);
+
+}
+void enqueue()
+{
+    printf("\nEnter element to be inserted\n");
+    scanf("%d",&ele);
+if(rear==n-1)
+printf("\nThe queue is full!\n");
+else if(front==-1&&rear==-1)
+{
+    front=0;
+    rear=0;
+    a[rear]=ele;
+}
+else
+{
+    rear=rear+1;
+    a[rear]=ele;
+
+}
+
+}
+ void dequeue()
+ {
+   
+     if(front==-1&&rear==-1){
+     printf("\nQueue is empty!\n");
+     return;}
+      else if(front==rear)
+     {
+         printf("\nThe deleted element is %d",a[front]);
+         front=-1;
+         rear=-1;
+     }
+     else{
+      printf("\nThe deleted element is %d",a[front]);
+         front=front+1;}
+ }
+ void display(int n)
+ {
+     if(front==-1)
+     printf("\n Queue is empty!Nothing to display\n");
+     else{
+
+     printf("\nThe elements in the queue are:\n");
+     for(int i=front;i<=rear;i++)
+      printf("%d",a[i]);
+      printf("\n");
+     }
+     
+ }
